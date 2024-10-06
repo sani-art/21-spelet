@@ -1,3 +1,4 @@
+# Importera bibliotek
 import random 
 from typing import List, Tuple
 
@@ -18,10 +19,10 @@ class Kortlek:
         # Skapar en ny kortlek med alla kort genom att anropa skapa_kortlek-funktionen.
         self.kortlek: List[Kort] = self.skapa_kortlek()
 
-    def skapa_kortlek(self) -> List[Tuple[str, int]]:
+    def skapa_kortlek(self) -> List[Kort]:
         # Skapar en ny kortlek med alla kort som tupler (kortnamn, värde). 
     
-        kortlek: List[Tuple[str, int]] = []
+        kortlek: List[Kort] = []
         # Loopa genom alla kort i Kort_värde.
         for kort_namn, kort_värde in Kort_värde.items():
             # Om kortet har fler värden (som Ess), lägg till varje värde separart.
@@ -35,7 +36,7 @@ class Kortlek:
         
         return kortlek
 
-    def dra_kort(self) -> Tuple[str, int]:
+    def dra_kort(self) -> Kort:
         # Drar ett kort slumpmässigt från kortleken.
         # Om kortleken är tom, skapas en ny kortlek.
        
@@ -52,8 +53,8 @@ class Tjugoett:
     def __init__(self):                 
     # Skapar spelarens och datorns händer som listor av kort.
          
-        self.spelarens_hand: List[Tuple[str, int]] = []           # Spelarens kort
-        self.datorns_hand: List[Tuple[str, int]] = []             # Datorns kort
+        self.spelarens_hand: List[Kort] = []           # Spelarens kort
+        self.datorns_hand: List[Kort] = []             # Datorns kort
         self.kortlek = Kortlek()                                  # Skapa en instans av Kortlek för att dra kort
 
     def dra_kort(self) -> Kort:            
